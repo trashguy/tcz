@@ -1,0 +1,34 @@
+#!/bin/sh
+#
+# J.P.Boggis 29/05/2001:  Script to perform CVS operations on
+#                         locally-customised repository files.
+#
+#                         (I.e:  These files are usually modified by the
+#                                end-user and should not be checked in/out,
+#                                unless they are working on a development copy.)
+
+
+# Path to TCZ files:
+tczpath=/home/tcz
+
+# CVS command (Excluding user-supplied arguments):
+cvscommand="cvs -z6"
+
+echo
+echo "The CVS command..."
+echo
+echo "      ${cvscommand} $*"
+echo
+echo "...will be performed on the following LOCALLY-CUSTOMISED repository files:"
+echo "   (I.e:  These files are usually modified by the end-user and should not"
+echo "          be checked in/out, unless they are working on a development copy.)"
+echo
+echo $(<${tczpath}/bin/localcvsfiles)
+echo
+echo "(PRESS CTRL+C TO ABORT)"
+echo
+
+# Perform CVS command
+pushd ${tczpath}
+cvs -z6 $* `cat ${tczpath}/bin/localcvsfiles`
+popd

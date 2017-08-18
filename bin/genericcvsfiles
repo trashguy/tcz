@@ -1,0 +1,1 @@
+BLURB BUGS CONTRIBUTERS HEADER LICENSE COPYRIGHT MODULES README TCZ2000 SITES VERSION src/*.c src/Makefile* include/*.h doc/*.txt changes/*.tcz ideas/*.txt ideas/IMPLEMENT bin/arctcz bin/cvsstatus bin/localcvs bin/genericcvs bin/localcvsfiles bin/genericcvsfiles bin/backup bin/updatealiases tczhtml/*.gif tczhtml/*.jpg lib/example.tcz lib/generic.*.tcz lib/termcap

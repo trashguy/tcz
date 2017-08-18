@@ -1,0 +1,31 @@
+#!/bin/sh
+#
+# J.P.Boggis 29/05/2001:  Script to perform CVS operations on generic
+#                         repository files (I.e:  Those not normally
+#                         locally customised.)
+
+
+# Path to TCZ files:
+tczpath=/home/tcz/tcz
+
+# CVS command (Excluding user-supplied arguments):
+cvscommand="cvs -z6"
+export CVS_RSH=ssh
+
+echo
+echo "The CVS command..."
+echo
+echo "      ${cvscommand} $*"
+echo
+echo "...will be performed on the following GENERIC repository files:"
+echo "   (I.e:  Those not normally locally customised.)"
+echo
+echo $(<${tczpath}/bin/genericcvsfiles)
+echo
+echo "(PRESS CTRL+C TO ABORT)"
+echo
+
+# Perform CVS command
+pushd ${tczpath}
+cvs -z6 $* `cat ${tczpath}/bin/genericcvsfiles`
+popd

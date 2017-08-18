@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# J.P.Boggis 06/01/1997:  Script to add TCZ E-mail aliases to /etc/aliases
+
+tczdir=/home/tcz
+cp /etc/aliases /etc/aliases.bak
+cat ${tczdir}/lib/forward.tcz > /etc/aliases
+cat ${tczdir}/lib/aliases.tcz >> /etc/aliases
+newaliases

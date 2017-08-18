@@ -1,0 +1,16 @@
+#!/bin/sh
+#
+# J.P.Boggis 29/05/2001:  Simple script to check status of all main TCZ files
+#                         in the CVS repository.
+
+
+# Path to TCZ files:
+tczpath=/home/tcz
+
+echo
+echo "Checking CVS status of all main TCZ files in the CVS repository..."
+echo
+
+pushd ${tczpath}
+cvs -z6 status `cat ${tczpath}/bin/genericcvsfiles` `cat ${tczpath}/bin/localcvsfiles` |less
+popd

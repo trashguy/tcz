@@ -1,0 +1,20 @@
+#!/bin/sh
+#
+# J.P.Boggis 29/05/2001:  Simple script to create tar.gz archive of TCZ files.
+
+
+# ---->  Location of TCZ files...
+tczpath=/home/tcz
+
+echo
+echo "Creating archive of TCZ files..."
+echo
+
+pushd ${tczpath}
+mv tcz.tar.gz tcz.tar.gz.bak
+tar czfv tcz.tar.gz bin/cvs* `cat ${tczpath}/bin/localcvsfiles` `cat ${tczpath}/bin/genericcvsfiles` lib/*.tcz
+popd
+
+echo
+echo "***  Archive complete.  ***"
+echo

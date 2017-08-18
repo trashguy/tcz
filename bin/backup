@@ -1,0 +1,62 @@
+#!/bin/sh
+#
+# .---------------------------------------------------------------------------.
+# | The Chatting Zone (TCZ)                          (C) J.P.Boggis 1993-2004 |
+# | ~~~~~~~~~~~~~~~~~~~~~~~                          ~~~~~~~~~~~~~~~~~~~~~~~~ |
+# |---------------------------------------------------------------------------|
+# | Automated backup script to backup The Chatting Zone database.             |
+# |---------------------------------------------------------------------------|
+# | This script needs to be ran every day by adding the following entry to    |
+# | your crontab:  0 7 * * * <FULL PATH>/bin/backup > /dev/null               |
+# |                                                                           |
+# | tczdir:     Path of TCZ root directory.                                   |
+# | backupdir:  Name of backup directory in TCZ root directory.               |
+# | database:   Name of database to backup.                                   |
+# | count:      Number of backups to keep (7 = 1 week's worth of backups.)    |
+# |-------------------------[ Copyright Information ]-------------------------|
+# | This program is free software; you can redistribute it and/or modify      |
+# | it under the terms of the GNU General Public License as published by      |
+# | the Free Software Foundation; either version 2 of the License, or         |
+# | (at your option) any later version.                                       |
+# |                                                                           |
+# | This program is distributed in the hope that it will be useful,           |
+# | but WITHOUT ANY WARRANTY; without even the implied warranty of            |
+# | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the             |
+# | GNU General Public License for more details.                              |
+# |                                                                           |
+# | You should have received a copy of the GNU General Public License         |
+# | along with this program; if not, write to the Free Software               |
+# | Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA |
+# |----------------------[ Credits & Acknowledgements ]-----------------------|
+# | For full details of authors and contributers to TCZ, please see the files |
+# | MODULES and CONTRIBUTERS.  For copyright and license information, please  |
+# | see LICENSE and COPYRIGHT.                                                |
+# |                                                                           |
+# | Written by:  J.P.Boggis 02/06/1996.                                       |
+# |------------------------[ The Chatting Zone (TCZ) ]------------------------|
+# |               For more information about TCZ, please visit:               |
+# |                  http://www.sourceforge.net/projects/tcz                  |
+# `---------------------------------------------------------------------------'
+
+tczdir=/home/tcz
+backupdir=backup
+database=main
+count=7
+
+# ---->  Move previous backups...
+echo "Backing up database '${tczdir}/lib/${database}.new.gz'..."
+cd ${tczdir}
+if test -e lib/${database}.new.gz; then
+   loop=${count}
+   while test ${loop} -gt 1; do
+         if test -e ${backupdir}/${database}.backup.$[${loop} - 1].gz; then
+            mv ${backupdir}/${database}.backup.$[${loop} - 1].gz ${backupdir}/${database}.backup.${loop}.gz;
+         fi
+         loop=$[${loop} - 1]; done
+
+   # ---->  Copy most recent run-time database
+   cp lib/${database}.new.gz ${backupdir}/${database}.backup.1.gz
+   echo "Backup complete."
+else
+   echo "Database '${tczdir}/lib/${database}.new.gz' does not exist  -  Backup aborted."
+fi
