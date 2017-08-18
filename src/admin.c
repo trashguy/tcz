@@ -40,6 +40,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <ctype.h>
+#include <crypt.h>
 
 #include "logfiles.h"
 #include "command.h"
@@ -56,9 +57,9 @@
 #include "match.h"
 #include "quota.h"
 
-#ifndef CYGWIN32
-   #include <crypt.h>
-#endif
+//#ifndef CYGWIN32
+//   #include <crypt.h>
+//#endif
 
 
 char  *shutdown_reason = NULL;

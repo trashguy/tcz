@@ -41,6 +41,7 @@
 #include <ctype.h>
 #include <stdio.h>
 #include <math.h>
+#include <crypt.h>
 
 #include "logfiles.h"
 #include "command.h"
@@ -62,9 +63,9 @@
 #include "match.h"
 #include "quota.h"
 
-#ifndef CYGWIN32
-   #include <crypt.h>
-#endif
+//#ifndef CYGWIN32
+//   #include <crypt.h>
+//#endif
 
 
 #define PROFILE_METRIC      0x80000000

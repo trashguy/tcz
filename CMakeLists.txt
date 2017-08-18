@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.8)
 project(tcz)
 
 set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_C_FLAGS "-ggdb -Wall -DLINUX")
+set(CMAKE_C_FLAGS "-ggdb -Wall -DLINUX -lm -lcrypt")
 
 set(SOURCE_FILES
         include/at_cmdtable.h
