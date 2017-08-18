@@ -1,0 +1,7 @@
+log/
+.idea
+cmake-build-debug/
+*.o
+*.d
+bin/tcz
+

@@ -35,6 +35,8 @@
 */
 
 
+#include <stdio.h>
+
 /* ---->  Read parameter from feelings file  <---- */
 const char *feelings_getparam(const char **name,FILE *f)
 {

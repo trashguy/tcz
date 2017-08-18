@@ -116,13 +116,13 @@ ELECTRICFENCE = 0
 # Possible flags for the above (NOT an exhaustive list!):
 # -0		optimise code (this will probably mess up gdb output)
 # -m386		produce 386 optimised code (will run on others fine)
-# -m486		produce 486 optimised code 
+# -m486		produce 486 optimised code
 # -Wall		All Warnings
 # -DLINUX 	We are using Linux
 #
 # You can mess around with these, they shouldn't stop sucessful compilation
 
-CFLAGS = -ggdb -Wall# -O
+CFLAGS = -ggdb -Wall# -O 
 
 # Other Important flags:
 #

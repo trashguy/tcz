@@ -374,9 +374,9 @@ struct search_data search_flagtype2[] =
 
 #else
 
-extern struct search_data search_objecttype[];
-extern struct search_data search_fieldtype[];
-extern struct search_data search_flagtype[];
-extern struct search_data search_flagtype2[];
+extern struct search_data *search_objecttype;
+extern struct search_data *search_fieldtype;
+extern struct search_data *search_flagtype;
+extern struct search_data *search_flagtype2;
 
 #endif

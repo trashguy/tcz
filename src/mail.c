@@ -137,11 +137,11 @@ unsigned char mail_send_message(dbref player,struct mlist_data **list,const char
 		MALLOC(new,struct mail_data);
 
 		if(!root) {
-		   new->subject = (char *) cached_subject = alloc_string(compress(punctuate((char *) subject,2,'\0'),0));
-		   new->message = (char *) cached_message = alloc_string(compress(punctuate((char *) text,2,'.'),0));
-		   new->sender  = (char *) cached_sender  = alloc_string(compress(getcname(NOTHING,player,0,UPPER|DEFINITE),1));
-		   if(group) new->redirect = (char *) cached_redirect = alloc_string(compress(grouplist,0));
-		      else if(Validchar(ptr->redirect)) new->redirect = (char *) cached_redirect = alloc_string(compress(getcname(NOTHING,ptr->redirect,0,UPPER|DEFINITE),0));
+		   new->subject = (char *) cached_subject == alloc_string(compress(punctuate((char *) subject,2,'\0'),0));
+		   new->message = (char *) cached_message == alloc_string(compress(punctuate((char *) text,2,'.'),0));
+		   new->sender  = (char *) cached_sender  == alloc_string(compress(getcname(NOTHING,player,0,UPPER|DEFINITE),1));
+		   if(group) new->redirect = (char *) cached_redirect == alloc_string(compress(grouplist,0));
+		      else if(Validchar(ptr->redirect)) new->redirect = (char *) cached_redirect == alloc_string(compress(getcname(NOTHING,ptr->redirect,0,UPPER|DEFINITE),0));
 			 else new->redirect = NULL;
 		} else {
 		   new->redirect = (char *) cached_redirect;
@@ -222,10 +222,10 @@ void mail_forward_message(dbref player,struct mlist_data **list,struct mail_data
             MALLOC(new,struct mail_data);
 
             if(!root) {
-               new->redirect = (char *) cached_redirect = alloc_string(compress(getcname(NOTHING,player,0,UPPER|DEFINITE),1));
-               new->subject  = (char *) cached_subject  = alloc_string(fmail->subject);
-               new->message  = (char *) cached_message  = alloc_string(fmail->message);
-               new->sender   = (char *) cached_sender   = alloc_string(fmail->sender);
+               new->redirect = (char *) cached_redirect == alloc_string(compress(getcname(NOTHING,player,0,UPPER|DEFINITE),1));
+               new->subject  = (char *) cached_subject  == alloc_string(fmail->subject);
+               new->message  = (char *) cached_message  == alloc_string(fmail->message);
+               new->sender   = (char *) cached_sender   == alloc_string(fmail->sender);
 	    } else {
                new->redirect = (char *) cached_redirect;
                new->subject  = (char *) cached_subject;

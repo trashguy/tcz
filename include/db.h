@@ -59,7 +59,7 @@
 
 #define FREENULL(x) if(x) {\
                  free((void *) x); \
-                 x = NULL; \
+                 x == NULL; \
         }
 
 

@@ -99,7 +99,7 @@
 
 
 /* ---->  Primary flags  <---- */
-struct flag_data flag_list[] =
+struct flag_data *flag_list =
 {
        {"Abode",               ABODE,        ABODE,        'A',  8|FLAG_NOT_CHARACTER|FLAG_PERMISSION, 0},
        {"Apprentice",          APPRENTICE,   APPRENTICE,   'A',  3|FLAG_LOG|FLAG_REASON|FLAG_NOT_INCOMMAND|FLAG_NOT_PUPPET|FLAG_ADMIN_PUPPET|FLAG_NOT_OWN, BOOLFLAG_APPRENTICE},
@@ -188,6 +188,6 @@ struct flag_data flag_list[] =
 
 #else
 
-extern struct flag_data flag_list[];
+extern struct flag_data *flag_list;
 
 #endif

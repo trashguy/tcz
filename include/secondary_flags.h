@@ -109,7 +109,7 @@ struct flag_data flag_list_prefs[] =
 
 
 /* ---->  Secondary object flags  <---- */
-struct flag_data flag_list2[] =
+struct flag_data *flag_list2 =
 {
        {"Abort",               ABORTFUSE,      ABORTFUSE,      'a',  4|FLAG_NOT_CHARACTER, 0},
        {"BBS",                 BBS,            BBS,            'b',  4|FLAG_LOG_CHARACTER|FLAG_REASON|FLAG_NOT_INCOMMAND|FLAG_NOT_OWN|FLAG_APPRENTICE|FLAG_PERMISSION, BOOLFLAG_BBS},
@@ -180,7 +180,7 @@ struct flag_data flag_list2[] =
 
 #else
 
-extern struct flag_data flag_list_prefs[];
-extern struct flag_data flag_list2[];
+extern struct flag_data *flag_list_prefs;
+extern struct flag_data *flag_list2;
 
 #endif

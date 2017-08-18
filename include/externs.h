@@ -91,8 +91,8 @@
 #define ARRAY_INVALID_RANGE      -4
 
 
-extern struct flag_data flag_list[];
-extern struct flag_data flag_list2[];
+extern struct flag_data *flag_list;
+extern struct flag_data *flag_list2;
 
 
 /* ---->  From admin.c  <---- */
