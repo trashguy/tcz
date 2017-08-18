@@ -48,6 +48,8 @@
 
 #ifdef LINUX
    #include <sys/time.h>
+#include <time.h>
+
 #else
    #include <time.h>
 #endif
